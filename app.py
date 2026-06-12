@@ -4,7 +4,7 @@ import streamlit as st
 # PAGE CONFIG
 # -------------------------
 st.set_page_config(
-    page_title="Anith C | GenAI Portfolio",
+    page_title="Anitha Devi C | GenAI Portfolio",
     page_icon="🤖",
     layout="wide"
 )
@@ -88,11 +88,11 @@ with col2:
     st.markdown("""
 📍 Chennai, India
 
-📧 your.email@example.com
+📧 anithachelamuthu@gmail.com
 
-🔗 [LinkedIn](https://linkedin.com)
+🔗 [LinkedIn](https://www.linkedin.com/in/anitha-chelamuthu-b93757b0/)
 
-💻 [GitHub](https://github.com)
+💻 [GitHub](https://github.com/AnithaChellamuthu)
 """)
 
 st.divider()
