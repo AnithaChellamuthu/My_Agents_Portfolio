@@ -1,4 +1,13 @@
+# app.py
+
+```python
 import streamlit as st
+from PIL import Image
+from pathlib import Path
+
+# --------------------------------------------------
+# PAGE CONFIG
+# --------------------------------------------------
 
 st.set_page_config(
     page_title="Anith C | GenAI Portfolio",
@@ -6,224 +15,354 @@ st.set_page_config(
     layout="wide"
 )
 
-# ---------------------------------------------------
-# HEADER
-# ---------------------------------------------------
-
-st.title("🤖 Anitha Devi C")
-st.subheader("Generative AI & Agentic AI Developer")
+# --------------------------------------------------
+# CUSTOM CSS
+# --------------------------------------------------
 
 st.markdown("""
-Building intelligent AI systems using **LangGraph, AutoGen, RAG, OpenAI, Supabase, and FastAPI**.
+<style>
 
-I specialize in:
+.block-container{
+    padding-top:2rem;
+}
 
-- Agentic AI Workflows
-- Retrieval Augmented Generation (RAG)
-- Multi-Agent Systems
-- LangGraph
-- AutoGen Swarm
-- Vector Databases
-- LLM Applications
-""")
+.hero-card{
+    background: linear-gradient(135deg,#0F172A,#1E293B);
+    padding:30px;
+    border-radius:20px;
+    border:1px solid #334155;
+}
 
-st.divider()
+.project-card{
+    padding:20px;
+    border-radius:18px;
+    background-color:#111827;
+    border:1px solid #374151;
+    margin-bottom:20px;
+}
 
-# ---------------------------------------------------
-# ABOUT
-# ---------------------------------------------------
+.metric-card{
+    background:#1E293B;
+    padding:15px;
+    border-radius:12px;
+    text-align:center;
+}
 
-st.header("👨‍💻 About Me")
+.tech-badge{
+    display:inline-block;
+    padding:8px 12px;
+    margin:4px;
+    border-radius:20px;
+    background:#2563EB;
+    color:white;
+    font-size:12px;
+}
 
-st.write("""
-I am passionate about building practical Generative AI applications that solve real-world problems.
+.project-title{
+    color:#60A5FA;
+}
 
-My focus areas include:
+hr{
+    margin-top:2rem;
+    margin-bottom:2rem;
+}
 
-- Agentic AI
-- Multi-Agent Systems
-- Retrieval-Augmented Generation (RAG)
-- Workflow Orchestration using LangGraph
-- AutoGen Swarm Teams
-- OpenAI Ecosystem
+</style>
+""", unsafe_allow_html=True)
 
-I enjoy creating AI solutions that combine reasoning, planning, retrieval, and autonomous decision-making.
-""")
+# --------------------------------------------------
+# HERO SECTION
+# --------------------------------------------------
 
-st.divider()
+col1, col2 = st.columns([1, 3])
 
-# ---------------------------------------------------
-# SKILLS
-# ---------------------------------------------------
+with col1:
 
-st.header("🛠️ Technical Skills")
+    image_path = Path("assets/profile.jpg")
+
+    if image_path.exists():
+        image = Image.open(image_path)
+        st.image(image, width=220)
+    else:
+        st.info("Add assets/profile.jpg")
+
+with col2:
+
+    st.markdown("""
+    <div class='hero-card'>
+        <h1>🤖 Anith C</h1>
+        <h3>Generative AI & Agentic AI Developer</h3>
+
+        <p>
+        Building intelligent AI applications using
+        LangGraph, AutoGen, OpenAI, RAG, FastAPI,
+        Supabase and Multi-Agent Systems.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+
+st.write("")
+
+# --------------------------------------------------
+# LINKS
+# --------------------------------------------------
 
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.subheader("AI Frameworks")
-    st.markdown("""
-    - LangChain
-    - LangGraph
-    - AutoGen
-    - CrewAI
-    - Google ADK
-    """)
+    st.link_button("🔗 GitHub", "https://github.com/YOUR_GITHUB")
 
 with col2:
-    st.subheader("LLM Technologies")
-    st.markdown("""
-    - OpenAI GPT Models
-    - Embeddings
-    - RAG
-    - Prompt Engineering
-    - Tool Calling
-    """)
+    st.link_button("💼 LinkedIn", "https://linkedin.com/in/YOUR_LINKEDIN")
 
 with col3:
-    st.subheader("Backend & Storage")
-    st.markdown("""
-    - Python
-    - FastAPI
-    - Supabase
-    - Vector Databases
-    - Git & GitHub
-    """)
+    st.link_button("📄 Resume", "#")
 
 st.divider()
 
-# ---------------------------------------------------
+# --------------------------------------------------
+# ABOUT
+# --------------------------------------------------
+
+st.header("👨‍💻 About Me")
+
+st.write("""
+I am passionate about building real-world Generative AI applications.
+
+My interests include:
+
+- Retrieval-Augmented Generation (RAG)
+- Agentic AI
+- Multi-Agent Systems
+- Workflow Orchestration
+- AI Assistants
+- Production-Ready LLM Applications
+
+I enjoy transforming ideas into intelligent systems that can reason,
+retrieve knowledge, and collaborate autonomously.
+""")
+
+st.divider()
+
+# --------------------------------------------------
+# CAREER JOURNEY
+# --------------------------------------------------
+
+st.header("🚀 AI Learning Journey")
+
+st.markdown("""
+### RAG Systems
+⬇️
+
+### Agentic Workflows
+⬇️
+
+### Multi-Agent Systems
+""")
+
+st.divider()
+
+# --------------------------------------------------
+# SKILLS
+# --------------------------------------------------
+
+st.header("🛠 Technical Skills")
+
+st.subheader("AI Frameworks")
+st.progress(90, text="LangGraph")
+st.progress(85, text="LangChain")
+st.progress(80, text="AutoGen")
+st.progress(75, text="CrewAI")
+st.progress(70, text="Google ADK")
+
+st.subheader("Generative AI")
+st.progress(90, text="RAG")
+st.progress(85, text="Prompt Engineering")
+st.progress(80, text="Vector Databases")
+st.progress(80, text="OpenAI APIs")
+
+st.subheader("Backend")
+st.progress(85, text="Python")
+st.progress(80, text="FastAPI")
+st.progress(75, text="Supabase")
+
+st.divider()
+
+# --------------------------------------------------
+# PROJECT METRICS
+# --------------------------------------------------
+
+st.header("📊 Portfolio Highlights")
+
+m1, m2, m3 = st.columns(3)
+
+with m1:
+    st.metric("Projects Built", "3")
+
+with m2:
+    st.metric("AI Domains", "RAG + Agents")
+
+with m3:
+    st.metric("Learning Focus", "Agentic AI")
+
+st.divider()
+
+# --------------------------------------------------
 # PROJECTS
-# ---------------------------------------------------
+# --------------------------------------------------
 
 st.header("🚀 Featured Projects")
 
-# ===================================================
+# ==================================================
 # PROJECT 1
-# ===================================================
+# ==================================================
 
-with st.container():
+st.markdown("""
+<div class='project-card'>
 
-    st.subheader("1️⃣ Multimodal RAG Assistant")
+<h3 class='project-title'>
+1️⃣ Multimodal RAG Assistant
+</h3>
 
-    st.write("""
-    A Retrieval-Augmented Generation (RAG) system that understands both
-    text and images from web content.
+<p>
+A Retrieval-Augmented Generation system capable of understanding
+both text and image content from websites.
+</p>
 
-    ### Key Features
-    - Reads content from web URLs
-    - Extracts text and images
-    - Chunks and embeds content
-    - Stores embeddings in Supabase Vector Store
-    - Stores image metadata with relevant chunks
-    - Retrieves answers with contextual images
+<b>Features</b>
 
-    ### Tech Stack
-    Python • LangChain • OpenAI Embeddings • Supabase • RAG
-    """)
+<ul>
+<li>Web URL ingestion</li>
+<li>Text extraction</li>
+<li>Image extraction</li>
+<li>Supabase vector storage</li>
+<li>Image-aware retrieval</li>
+<li>Contextual answers with visuals</li>
+</ul>
 
-    try:
-        st.video("assets/rag_demo.mp4")
-    except:
-        st.info("Add rag_demo.mp4 inside assets folder")
+<b>Tech Stack:</b>
 
-st.divider()
+Python • LangChain • OpenAI • Supabase • RAG
 
-# ===================================================
+</div>
+""", unsafe_allow_html=True)
+
+if Path("assets/rag_demo.mp4").exists():
+    st.video("assets/rag_demo.mp4")
+
+# ==================================================
 # PROJECT 2
-# ===================================================
+# ==================================================
 
-with st.container():
+st.markdown("""
+<div class='project-card'>
 
-    st.subheader("2️⃣ AI Travel Planner Agent")
+<h3 class='project-title'>
+2️⃣ Travel Planner Agent
+</h3>
 
-    st.write("""
-    An Agentic AI Travel Planner built using LangGraph.
+<p>
+An intelligent travel planning agent built with LangGraph.
+</p>
 
-    The agent collects and analyzes:
+<b>Capabilities</b>
 
-    - Travel Preferences
-    - Budget Constraints
-    - Hotel Options
-    - Weather Conditions
-    - Local Experiences
-    - Destination Information
+<ul>
+<li>Collects travel preferences</li>
+<li>Captures budget information</li>
+<li>Checks weather conditions</li>
+<li>Finds hotel recommendations</li>
+<li>Creates detailed itineraries</li>
+<li>Improves plans using user feedback</li>
+</ul>
 
-    It generates a detailed itinerary and continuously improves
-    recommendations based on user feedback.
+<b>Tech Stack:</b>
 
-    ### Agent Capabilities
-    - Dynamic Planning
-    - Tool Usage
-    - User Feedback Loop
-    - Iterative Itinerary Optimization
+LangGraph • OpenAI • Python • Agentic Workflows
 
-    ### Tech Stack
-    LangGraph • OpenAI • Python • Agentic Workflows
-    """)
+</div>
+""", unsafe_allow_html=True)
 
-    try:
-        st.video("assets/travel_agent_demo.mp4")
-    except:
-        st.info("Add travel_agent_demo.mp4 inside assets folder")
+if Path("assets/travel_agent_demo.mp4").exists():
+    st.video("assets/travel_agent_demo.mp4")
 
-st.divider()
-
-# ===================================================
+# ==================================================
 # PROJECT 3
-# ===================================================
+# ==================================================
 
-with st.container():
+st.markdown("""
+<div class='project-card'>
 
-    st.subheader("3️⃣ Study Buddy - AutoGen Swarm Team")
+<h3 class='project-title'>
+3️⃣ Study Buddy (AutoGen Swarm Team)
+</h3>
 
-    st.write("""
-    An AI-powered learning assistant built using AutoGen Swarm Teams.
+<p>
+A multi-agent educational assistant that helps users learn
+from uploaded PDF documents.
+</p>
 
-    Users can upload PDF documents and interact with a team of AI agents
-    designed to enhance learning.
+<b>Workflow</b>
 
-    ### Features
+<ul>
+<li>PDF ingestion</li>
+<li>Concept explanation</li>
+<li>Quiz generation</li>
+<li>Answer validation</li>
+<li>Learning reinforcement</li>
+</ul>
 
-    📘 Concept Explainer
-    - Explains concepts directly from uploaded PDFs
+<b>Multi-Agent Architecture</b>
 
-    🧠 Quiz Generator
-    - Creates MCQs from learning material
+<ul>
+<li>Retriever Agent</li>
+<li>Explainer Agent</li>
+<li>Quiz Generator Agent</li>
+<li>Validator Agent</li>
+</ul>
 
-    ✅ Answer Validator
-    - Evaluates user responses
-    - Provides correct answers and feedback
+<b>Tech Stack:</b>
 
-    ### Multi-Agent Workflow
+AutoGen • Swarm Teams • OpenAI • Python
 
-    Agent 1 → Content Retrieval
+</div>
+""", unsafe_allow_html=True)
 
-    Agent 2 → Concept Explanation
-
-    Agent 3 → Quiz Generation
-
-    Agent 4 → Answer Validation
-
-    ### Tech Stack
-
-    AutoGen
-    Swarm Team
-    OpenAI
-    PDF Processing
-    Python
-    """)
-
-    try:
-        st.video("assets/study_buddy_demo.mp4")
-    except:
-        st.info("Add study_buddy_demo.mp4 inside assets folder")
+if Path("assets/study_buddy_demo.mp4").exists():
+    st.video("assets/study_buddy_demo.mp4")
 
 st.divider()
 
-# ---------------------------------------------------
-# LEARNING JOURNEY
-# ---------------------------------------------------
+# --------------------------------------------------
+# TECH STACK
+# --------------------------------------------------
+
+st.header("⚡ Technologies")
+
+techs = [
+    "Python",
+    "LangChain",
+    "LangGraph",
+    "AutoGen",
+    "OpenAI",
+    "FastAPI",
+    "Supabase",
+    "Vector Databases",
+    "RAG",
+    "Git",
+    "GitHub"
+]
+
+cols = st.columns(4)
+
+for i, tech in enumerate(techs):
+    cols[i % 4].success(tech)
+
+st.divider()
+
+# --------------------------------------------------
+# CURRENTLY LEARNING
+# --------------------------------------------------
 
 st.header("📚 Currently Exploring")
 
@@ -231,30 +370,21 @@ st.markdown("""
 - Advanced Agentic AI Systems
 - MCP (Model Context Protocol)
 - Multi-Agent Collaboration
-- AI Workflow Orchestration
-- Production-Ready GenAI Applications
-- Evaluation Frameworks for AI Agents
+- AI Workflow Evaluation
+- Production AI Deployment
 """)
 
 st.divider()
 
-# ---------------------------------------------------
+# --------------------------------------------------
 # CONTACT
-# ---------------------------------------------------
+# --------------------------------------------------
 
-st.header("📬 Connect With Me")
-gmail_url = "anithachelamuthu@gmail.com"
-github_url = "https://github.com/AnithaChellamuthu"
-linkedin_url = "https://www.linkedin.com/in/anitha-chelamuthu-b93757b0/"
+st.header("📬 Let's Connect")
 
-st.markdown(f"""
-🔗 Gmail: {gmail_url}
+st.write("📧 anithachelamuthu@gmail.com")
+st.write("💼 https://www.linkedin.com/in/anitha-chelamuthu-b93757b0/")
+st.write("💻 GitHub: https://github.com/AnithaChellamuthu")
 
-🔗 GitHub: {github_url}
-
-🔗 LinkedIn: {linkedin_url}
-""")
-
-st.divider()
-
-st.success("Thanks for visiting my AI Portfolio 🚀")
+st.success("Thanks for visiting my portfolio 🚀")
+```
