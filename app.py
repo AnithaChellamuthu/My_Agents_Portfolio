@@ -1,390 +1,455 @@
-# app.py
-
-
 import streamlit as st
-from PIL import Image
 from pathlib import Path
+from PIL import Image
 
-# --------------------------------------------------
+# =====================================================
+
 # PAGE CONFIG
-# --------------------------------------------------
+
+# =====================================================
 
 st.set_page_config(
-    page_title="Anitha Devi C | GenAI Portfolio",
-    page_icon="🤖",
-    layout="wide"
+page_title="Anitha Devi C | GenAI Portfolio",
+page_icon="🤖",
+layout="wide"
 )
 
-# --------------------------------------------------
+# =====================================================
+
 # CUSTOM CSS
-# --------------------------------------------------
+
+# =====================================================
 
 st.markdown("""
+
 <style>
 
 .block-container{
     padding-top:2rem;
+    max-width:1200px;
 }
 
-.hero-card{
-    background: linear-gradient(135deg,#0F172A,#1E293B);
-    padding:30px;
+.hero{
+    background: linear-gradient(135deg,#0f172a,#1e3a8a);
+    padding:35px;
     border-radius:20px;
-    border:1px solid #334155;
+    color:white;
+    box-shadow:0px 8px 25px rgba(0,0,0,0.3);
+}
+
+.skill-badge{
+    display:inline-block;
+    background:#2563eb;
+    color:white;
+    padding:8px 14px;
+    border-radius:20px;
+    margin:4px;
+    font-size:14px;
+    font-weight:500;
+}
+
+.timeline{
+    border-left:4px solid #2563eb;
+    padding-left:20px;
+    margin-left:10px;
 }
 
 .project-card{
     padding:20px;
-    border-radius:18px;
-    background-color:#111827;
-    border:1px solid #374151;
-    margin-bottom:20px;
-}
-
-.metric-card{
-    background:#1E293B;
-    padding:15px;
-    border-radius:12px;
-    text-align:center;
-}
-
-.tech-badge{
-    display:inline-block;
-    padding:8px 12px;
-    margin:4px;
     border-radius:20px;
-    background:#2563EB;
-    color:white;
-    font-size:12px;
+    background:#111827;
+    border:1px solid #374151;
 }
 
-.project-title{
-    color:#60A5FA;
-}
-
-hr{
-    margin-top:2rem;
-    margin-bottom:2rem;
+.section-title{
+    margin-top:25px;
 }
 
 </style>
+
 """, unsafe_allow_html=True)
 
-# --------------------------------------------------
-# HERO SECTION
-# --------------------------------------------------
+# =====================================================
 
-col1, col2 = st.columns([1, 3])
+# HERO SECTION
+
+# =====================================================
+
+col1, col2 = st.columns([1,3])
 
 with col1:
 
-    image_path = Path("assets/profile.jpg")
+```
+profile_path = Path("assets/profile.jpg")
 
-    if image_path.exists():
-        image = Image.open(image_path)
-        st.image(image, width=220)
-    else:
-        st.info("Add assets/profile.jpg")
+if profile_path.exists():
+    image = Image.open(profile_path)
+    st.image(image, width=250)
+```
 
 with col2:
 
-    st.subheader("Generative AI & Agentic AI Developer")
-
+```
 st.markdown("""
-Building intelligent AI applications using:
+<div class="hero">
 
-- LangGraph
-- AutoGen
-- OpenAI
-- RAG
-- FastAPI
-- Supabase
-- Multi-Agent Systems
-""")
+<h1>🤖 Anitha Devi C</h1>
+
+<h3>Generative AI & Agentic AI Developer</h3>
+
+<p style="font-size:18px;">
+Building intelligent AI applications using
+LangGraph, AutoGen, OpenAI, RAG,
+FastAPI, Supabase and Multi-Agent Systems.
+</p>
+
+<p>
+Passionate about Agentic AI, Multi-Agent Systems,
+Retrieval-Augmented Generation (RAG),
+and Production-Ready AI Applications.
+</p>
+
+</div>
+""", unsafe_allow_html=True)
+```
+
 st.write("")
 
-# --------------------------------------------------
+# =====================================================
+
 # LINKS
-# --------------------------------------------------
 
-col1, col2, col3 = st.columns(3)
+# =====================================================
 
-with col1:
-    st.link_button("🔗 GitHub", "https://github.com/AnithaChellamuthu")
+c1, c2, c3 = st.columns(3)
 
-with col2:
-    st.link_button("💼 LinkedIn", "https://www.linkedin.com/in/anitha-chelamuthu-b93757b0/")
+with c1:
+st.link_button(
+"🔗 GitHub",
+"https://github.com/AnithaChellamuthu"
+)
 
-with col3:
-    st.link_button("📄 Resume", "#")
+with c2:
+st.link_button(
+"💼 LinkedIn",
+"https://www.linkedin.com/in/anitha-chelamuthu-b93757b0/"
+)
+
+with c3:
+
+```
+resume_path = Path("assets/resume.pdf")
+
+if resume_path.exists():
+
+    with open(resume_path, "rb") as pdf:
+
+        st.download_button(
+            label="📄 Download Resume",
+            data=pdf,
+            file_name="Anitha_Devi_C_Resume.pdf",
+            mime="application/pdf"
+        )
+```
 
 st.divider()
 
-# --------------------------------------------------
-# ABOUT
-# --------------------------------------------------
+# =====================================================
 
-st.header("👨‍💻 About Me")
+# ABOUT
+
+# =====================================================
+
+st.header("👩‍💻 About Me")
 
 st.write("""
-I am passionate about building real-world Generative AI applications.
+I am passionate about building real-world Generative AI applications that solve practical problems.
 
 My interests include:
 
-- Retrieval-Augmented Generation (RAG)
-- Agentic AI
-- Multi-Agent Systems
-- Workflow Orchestration
-- AI Assistants
-- Production-Ready LLM Applications
+* Retrieval-Augmented Generation (RAG)
+* Agentic AI
+* Multi-Agent Systems
+* Workflow Orchestration
+* AI Assistants
+* LLM Powered Applications
 
-I enjoy transforming ideas into intelligent systems that can reason,
-retrieve knowledge, and collaborate autonomously.
+I enjoy creating intelligent systems that can reason, retrieve information, collaborate, and continuously improve through user interaction.
 """)
 
 st.divider()
 
-# --------------------------------------------------
-# CAREER JOURNEY
-# --------------------------------------------------
+# =====================================================
+
+# SKILLS
+
+# =====================================================
+
+st.header("🛠 Technical Skills")
+
+skills = [
+"Python",
+"LangChain",
+"LangGraph",
+"AutoGen",
+"OpenAI",
+"FastAPI",
+"Supabase",
+"RAG",
+"Vector Databases",
+"Prompt Engineering",
+"Multi-Agent Systems",
+"Git",
+"GitHub"
+]
+
+for skill in skills:
+st.markdown(
+f"<span class='skill-badge'>{skill}</span>",
+unsafe_allow_html=True
+)
+
+st.divider()
+
+# =====================================================
+
+# AI JOURNEY
+
+# =====================================================
 
 st.header("🚀 AI Learning Journey")
 
 st.markdown("""
-### RAG Systems
-⬇️
 
-### Agentic Workflows
-⬇️
+<div class="timeline">
 
-### Multi-Agent Systems
-""")
+<h4>📚 Multimodal RAG Systems</h4>
 
-st.divider()
+Built retrieval systems capable of processing both text and images from websites and generating context-aware answers.
 
-# --------------------------------------------------
-# SKILLS
-# --------------------------------------------------
+<br>
 
-st.header("🛠 Technical Skills")
+<h4>✈️ Agentic Workflows with LangGraph</h4>
 
-st.subheader("AI Frameworks")
-st.progress(90, text="LangGraph")
-st.progress(85, text="LangChain")
-st.progress(80, text="AutoGen")
-st.progress(75, text="CrewAI")
-st.progress(70, text="Google ADK")
+Designed intelligent travel planning agents that gather information, reason over constraints, and iteratively improve travel itineraries.
 
-st.subheader("Generative AI")
-st.progress(90, text="RAG")
-st.progress(85, text="Prompt Engineering")
-st.progress(80, text="Vector Databases")
-st.progress(80, text="OpenAI APIs")
+<br>
 
-st.subheader("Backend")
-st.progress(85, text="Python")
-st.progress(80, text="FastAPI")
-st.progress(75, text="Supabase")
+<h4>🤝 Multi-Agent Systems using AutoGen</h4>
+
+Built collaborative AI agents capable of explaining concepts, generating quizzes, and validating answers from educational PDFs.
+
+</div>
+""", unsafe_allow_html=True)
 
 st.divider()
 
-# --------------------------------------------------
-# PROJECT METRICS
-# --------------------------------------------------
+# =====================================================
+
+# HIGHLIGHTS
+
+# =====================================================
 
 st.header("📊 Portfolio Highlights")
 
-m1, m2, m3 = st.columns(3)
+m1, m2, m3, m4 = st.columns(4)
 
-with m1:
-    st.metric("Projects Built", "3")
-
-with m2:
-    st.metric("AI Domains", "RAG + Agents")
-
-with m3:
-    st.metric("Learning Focus", "Agentic AI")
+m1.metric("Projects", "3")
+m2.metric("Core Focus", "GenAI")
+m3.metric("Specialization", "Agentic AI")
+m4.metric("Frameworks", "5+")
 
 st.divider()
 
-# --------------------------------------------------
+# =====================================================
+
 # PROJECTS
-# --------------------------------------------------
+
+# =====================================================
 
 st.header("🚀 Featured Projects")
 
-# ==================================================
+# -----------------------------------------------------
+
 # PROJECT 1
-# ==================================================
 
-st.markdown("""
-<div class='project-card'>
+# -----------------------------------------------------
 
-<h3 class='project-title'>
-1️⃣ Multimodal RAG Assistant
-</h3>
+with st.container(border=True):
 
-<p>
-A Retrieval-Augmented Generation system capable of understanding
-both text and image content from websites.
-</p>
+```
+st.subheader("📚 Multimodal RAG Assistant")
 
-<b>Features</b>
+col1, col2 = st.columns([2,1])
 
-<ul>
-<li>Web URL ingestion</li>
-<li>Text extraction</li>
-<li>Image extraction</li>
-<li>Supabase vector storage</li>
-<li>Image-aware retrieval</li>
-<li>Contextual answers with visuals</li>
-</ul>
+with col1:
 
-<b>Tech Stack:</b>
+    st.write("""
+```
 
-Python • LangChain • OpenAI • Supabase • RAG
+**Overview**
 
-</div>
-""", unsafe_allow_html=True)
+A Retrieval-Augmented Generation system capable of understanding both text and image content from websites.
 
-if Path("assets/rag_demo.mp4").exists():
-    st.video("assets/rag_demo.mp4")
+**Key Features**
 
-# ==================================================
+* Web URL ingestion
+* Text extraction
+* Image extraction
+* OpenAI Embeddings
+* Supabase Vector Storage
+* Image-aware retrieval
+* Contextual answers with visuals
+  """)
+
+  with col2:
+
+  ```
+    screenshot = Path("assets/rag.png")
+
+    if screenshot.exists():
+        st.image(str(screenshot))
+  ```
+
+  video = Path("assets/rag_demo.mp4")
+
+  if video.exists():
+  st.video(str(video))
+
+# -----------------------------------------------------
+
 # PROJECT 2
-# ==================================================
 
-st.markdown("""
-<div class='project-card'>
+# -----------------------------------------------------
 
-<h3 class='project-title'>
-2️⃣ Travel Planner Agent
-</h3>
+with st.container(border=True):
 
-<p>
-An intelligent travel planning agent built with LangGraph.
-</p>
+```
+st.subheader("✈️ Travel Planner Agent")
 
-<b>Capabilities</b>
+col1, col2 = st.columns([2,1])
 
-<ul>
-<li>Collects travel preferences</li>
-<li>Captures budget information</li>
-<li>Checks weather conditions</li>
-<li>Finds hotel recommendations</li>
-<li>Creates detailed itineraries</li>
-<li>Improves plans using user feedback</li>
-</ul>
+with col1:
 
-<b>Tech Stack:</b>
+    st.write("""
+```
 
-LangGraph • OpenAI • Python • Agentic Workflows
+**Overview**
 
-</div>
-""", unsafe_allow_html=True)
+An Agentic AI travel planner built using LangGraph.
 
-if Path("assets/travel_agent_demo.mp4").exists():
-    st.video("assets/travel_agent_demo.mp4")
+**Capabilities**
 
-# ==================================================
+* Collects travel preferences
+* Budget planning
+* Hotel recommendations
+* Weather analysis
+* Experience recommendations
+* Itinerary generation
+* User feedback driven optimization
+  """)
+
+  with col2:
+
+  ```
+    screenshot = Path("assets/travel.png")
+
+    if screenshot.exists():
+        st.image(str(screenshot))
+  ```
+
+  video = Path("assets/travel_demo.mp4")
+
+  if video.exists():
+  st.video(str(video))
+
+# -----------------------------------------------------
+
 # PROJECT 3
-# ==================================================
+
+# -----------------------------------------------------
+
+with st.container(border=True):
+
+```
+st.subheader("🎓 Study Buddy (AutoGen Swarm Team)")
+
+col1, col2 = st.columns([2,1])
+
+with col1:
+
+    st.write("""
+```
+
+**Overview**
+
+A multi-agent educational assistant that helps users learn directly from PDF documents.
+
+**Workflow**
+
+* PDF ingestion
+* Concept explanation
+* Quiz generation
+* Answer validation
+* Learning reinforcement
+
+**Agents**
+
+* Retriever Agent
+* Explainer Agent
+* Quiz Generator Agent
+* Validator Agent
+  """)
+
+  with col2:
+
+  ```
+    screenshot = Path("assets/studybuddy.png")
+
+    if screenshot.exists():
+        st.image(str(screenshot))
+  ```
+
+  video = Path("assets/study_demo.mp4")
+
+  if video.exists():
+  st.video(str(video))
+
+st.divider()
+
+# =====================================================
+
+# CURRENTLY EXPLORING
+
+# =====================================================
+
+st.header("📖 Currently Exploring")
 
 st.markdown("""
-<div class='project-card'>
 
-<h3 class='project-title'>
-3️⃣ Study Buddy (AutoGen Swarm Team)
-</h3>
-
-<p>
-A multi-agent educational assistant that helps users learn
-from uploaded PDF documents.
-</p>
-
-<b>Workflow</b>
-
-<ul>
-<li>PDF ingestion</li>
-<li>Concept explanation</li>
-<li>Quiz generation</li>
-<li>Answer validation</li>
-<li>Learning reinforcement</li>
-</ul>
-
-<b>Multi-Agent Architecture</b>
-
-<ul>
-<li>Retriever Agent</li>
-<li>Explainer Agent</li>
-<li>Quiz Generator Agent</li>
-<li>Validator Agent</li>
-</ul>
-
-<b>Tech Stack:</b>
-
-AutoGen • Swarm Teams • OpenAI • Python
-
-</div>
-""", unsafe_allow_html=True)
-
-if Path("assets/study_buddy_demo.mp4").exists():
-    st.video("assets/study_buddy_demo.mp4")
+* Model Context Protocol (MCP)
+* Advanced Agentic AI Architectures
+* Multi-Agent Collaboration Patterns
+* AI Evaluation Frameworks
+* Production AI Deployment
+  """)
 
 st.divider()
 
-# --------------------------------------------------
-# TECH STACK
-# --------------------------------------------------
+# =====================================================
 
-st.header("⚡ Technologies")
-
-techs = [
-    "Python",
-    "LangChain",
-    "LangGraph",
-    "AutoGen",
-    "OpenAI",
-    "FastAPI",
-    "Supabase",
-    "Vector Databases",
-    "RAG",
-    "Git",
-    "GitHub"
-]
-
-cols = st.columns(4)
-
-for i, tech in enumerate(techs):
-    cols[i % 4].success(tech)
-
-st.divider()
-
-# --------------------------------------------------
-# CURRENTLY LEARNING
-# --------------------------------------------------
-
-st.header("📚 Currently Exploring")
-
-st.markdown("""
-- Advanced Agentic AI Systems
-- MCP (Model Context Protocol)
-- Multi-Agent Collaboration
-- AI Workflow Evaluation
-- Production AI Deployment
-""")
-
-st.divider()
-
-# --------------------------------------------------
 # CONTACT
-# --------------------------------------------------
 
-st.header("📬 Let's Connect")
+# =====================================================
 
-st.write("📧 anithachelamuthu@gmail.com")
-st.write("💼 https://www.linkedin.com/in/anitha-chelamuthu-b93757b0/")
-st.write("💻 GitHub: https://github.com/AnithaChellamuthu")
+st.header("📬 Contact")
 
-st.success("Thanks for visiting my portfolio 🚀")
+col1, col2 = st.columns(2)
 
+with col1:
+st.info("📧 [anithachelamuthu@gmail.com](mailto:anithachelamuthu@gmail.com)")
+
+with col2:
+st.info("🌍 Chennai, India")
+
+st.success("Thank you for visiting my portfolio 🚀")
