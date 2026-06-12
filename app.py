@@ -10,7 +10,7 @@ from pathlib import Path
 # --------------------------------------------------
 
 st.set_page_config(
-    page_title="Anith C | GenAI Portfolio",
+    page_title="Anitha Devi C | GenAI Portfolio",
     page_icon="🤖",
     layout="wide"
 )
@@ -88,19 +88,19 @@ with col1:
 
 with col2:
 
-    st.markdown("""
-    <div class='hero-card'>
-        <h1>🤖 Anith C</h1>
-        <h3>Generative AI & Agentic AI Developer</h3>
+    st.subheader("Generative AI & Agentic AI Developer")
 
-        <p>
-        Building intelligent AI applications using
-        LangGraph, AutoGen, OpenAI, RAG, FastAPI,
-        Supabase and Multi-Agent Systems.
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
+st.markdown("""
+Building intelligent AI applications using:
 
+- LangGraph
+- AutoGen
+- OpenAI
+- RAG
+- FastAPI
+- Supabase
+- Multi-Agent Systems
+""")
 st.write("")
 
 # --------------------------------------------------
@@ -110,10 +110,10 @@ st.write("")
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.link_button("🔗 GitHub", "https://github.com/YOUR_GITHUB")
+    st.link_button("🔗 GitHub", "https://github.com/AnithaChellamuthu")
 
 with col2:
-    st.link_button("💼 LinkedIn", "https://linkedin.com/in/YOUR_LINKEDIN")
+    st.link_button("💼 LinkedIn", "https://www.linkedin.com/in/anitha-chelamuthu-b93757b0/")
 
 with col3:
     st.link_button("📄 Resume", "#")
