@@ -169,11 +169,18 @@ skills = [
     "GitHub"
 ]
 
-for skill in skills:
-    st.markdown(
-        f"<span class='skill-badge'>{skill}</span>",
-        unsafe_allow_html=True
-    )
+# 1. Join all skill badges into a single string
+badge_html = "".join([f"<span class='skill-badge'>{skill}</span>" for skill in skills])
+
+# 2. Wrap them in a flexbox container for horizontal alignment and automatic wrapping
+st.markdown(
+    f"""
+    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        {badge_html}
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 st.divider()
 
