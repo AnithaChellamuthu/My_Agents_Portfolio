@@ -154,6 +154,7 @@ st.divider()
 st.header("🛠 Technical Skills")
 
 skills = [
+    "Autonomous Agents",
     "Python",
     "LangChain",
     "LangGraph",
@@ -161,12 +162,17 @@ skills = [
     "OpenAI",
     "FastAPI",
     "Supabase",
+    "Pinecone",
+    "FAISS",
+    "Embeddings",
     "RAG",
-    "Vector Databases",
     "Prompt Engineering",
     "Multi-Agent Systems",
     "Git",
-    "GitHub"
+    "GitHub",
+    "Java",
+    "REST API's",
+    "SQL"
 ]
 
 # 1. Join all skill badges into a single string
