@@ -214,6 +214,13 @@ Designed intelligent travel planning agents that gather information, reason over
 <h4>🤝 Multi-Agent Systems using AutoGen</h4>
 
 Built collaborative AI agents capable of explaining concepts, generating quizzes, and validating answers from educational PDFs.
+an AI-powered Study Buddy built using the AutoGen Swarm framework and FAISS Vectorstore for precise PDF-based learning. 📄✨
+Project Overview:
+🤖 Tutor Agent: Explains complex topics and answers questions instantly.
+🧠 MCQ Agent: Generates custom quizzes and evaluates your answers.
+👥 User Proxy Agent: Ensures seamless human-in-the-loop interaction.
+🔒 Strict PDF Context: Restricts answers entirely to your uploaded document.
+This multi-agent system transforms static PDFs into interactive, conversational learning tools. It handles everything from deep-dive explanations to active recall testing automatically. 
 
 </div>
 """, unsafe_allow_html=True)
