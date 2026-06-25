@@ -194,45 +194,83 @@ st.divider()
 # AI JOURNEY
 # =====================================================
 
+# =====================================================
+# AI JOURNEY
+# =====================================================
+
 st.header("🚀 AI Learning Journey")
 
 st.markdown("""
+<style>
+    .timeline-item {
+        margin-bottom: 25px;
+        padding-left: 15px;
+        border-left: 3px solid #4A90E2;
+    }
+    .tech-badge {
+        background-color: #f0f2f6;
+        color: #31333F;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: bold;
+        margin-right: 5px;
+        display: inline-block;
+        margin-top: 5px;
+    }
+</style>
+
 <div class="timeline">
 
-<h4>📚 Multimodal RAG Systems</h4>
+    <!-- MILESTONE 1 -->
+    <div class="timeline-item">
+        <h4>📚 Multimodal RAG Systems</h4>
+        <p>Engineered an advanced retrieval pipeline that ingests live website URLs to extract, chunk, and index both text and visual elements. By mapping image metadata directly to semantic text chunks, the system enables an LLM to deliver context-grounded answers paired with real-time supporting visuals.</p>
+        <p>💡 <b>Key Accomplishments:</b></p>
+        <ul>
+            <li>Automated parsing and intelligent chunking of rich web content.</li>
+            <li>Eliminated hallucinations by forcing strict grounding on retrieved data.</li>
+        </ul>
+        <div>
+            <span class="tech-badge">Supabase (pgvector)</span>
+            <span class="tech-badge">LangChain</span>
+            <span class="tech-badge">OpenAI GPT-4o</span>
+            <span class="tech-badge">BeautifulSoup</span>
+        </div>
+    </div>
 
-Built retrieval systems capable of processing both text and images from websites and generating context-aware answers.
-A Retrieval-Augmented Generation (RAG) application that processes content from a website URL by extracting both text and images. The content is then chunked, embedded, and stored in a Supabase vector database for efficient retrieval.
-Along with storing text embeddings, the system maintains image metadata linked to relevant content chunks. As a result, when users interact with the AI assistant, it can retrieve accurate contextual answers along with the most relevant supporting image.
-💡 Core Features
+    <!-- MILESTONE 2 -->
+    <div class="timeline-item">
+        <h4>✈️ Agentic Workflows with LangGraph</h4>
+        <p>Designed and deployed autonomous, stateful travel planning agents using graph-based architectures. The system coordinates cyclical workflows where agents dynamically gather real-time data, reason over complex budget and scheduling constraints, and iteratively refine highly customized itineraries.</p>
+        <p>💡 <b>Key Accomplishments:</b></p>
+        <ul>
+            <li>Implemented state management to track and update user constraints dynamically.</li>
+            <li>Created feedback loops for continuous self-correction and route optimization.</li>
+        </ul>
+        <div>
+            <span class="tech-badge">LangGraph</span>
+            <span class="tech-badge">Stateful Agents</span>
+            <span class="tech-badge">Tool Calling</span>
+            <span class="tech-badge">Python</span>
+        </div>
+    </div>
 
-*   **🌐 Intelligent Ingestion:** Automates parsing of text and images from live web URLs.
-*   **🧩 Semantic Vector Pipeline:** Employs intelligent text chunking and embeds data for high-dimensional similarity search.
-*   **🖼️ Multimodal Context Mapping:** Links image metadata to text chunks, serving precise answers paired with **supporting visuals**.
-*   **🧠 Grounded Q&A Engine:** Minimizes hallucinations by restricting LLM responses strictly to retrieved data.
-## 🛠️ Tech Stack
-
-*   **Vector Database:** Supabase (`pgvector`)
-*   **Orchestration & LLMs:** LangChain, OpenAI GPT-4o
-*   **Data Processing:** Python, BeautifulSoup
-<br><br>
-
-<h4>✈️ Agentic Workflows with LangGraph</h4>
-
-Designed intelligent travel planning agents that gather information, reason over constraints, and iteratively improve travel itineraries.
-
-<br><br>
-
-<h4>🤝 Multi-Agent Systems using AutoGen</h4>
-
-Built collaborative AI agents capable of explaining concepts, generating quizzes, and validating answers from educational PDFs.
-An AI-powered Study Buddy built using the AutoGen Swarm framework and FAISS Vectorstore for precise PDF-based learning. 📄✨
-Overview:
-🤖 Tutor Agent: Explains complex topics and answers questions instantly.
-🧠 MCQ Agent: Generates custom quizzes and evaluates your answers.
-👥 User Proxy Agent: Ensures seamless human-in-the-loop interaction.
-🔒 Strict PDF Context: Restricts answers entirely to your uploaded document.
-This multi-agent system transforms static PDFs into interactive, conversational learning tools. It handles everything from deep-dive explanations to active recall testing automatically. 
+    <!-- MILESTONE 3 -->
+    <div class="timeline-item">
+        <h4>🤝 Multi-Agent Systems using AutoGen</h4>
+        <p>Developed an AI-powered "Study Buddy" that transforms static PDF textbooks into conversational learning tools. Built on a swarm framework, the project coordinates specialized agents to handle core tutoring, active recall evaluation, and human-in-the-loop validation.</p>
+        <p>💡 <b>Key Accomplishments:</b></p>
+        <ul>
+            <li><b>Tutor & MCQ Agents:</b> Cooperate to explain concepts and instantly generate custom quizzes.</li>
+            <li><b>User Proxy Agent:</b> Orchestrates seamless task handoffs and direct human feedback.</li>
+        </ul>
+        <div>
+            <span class="tech-badge">AutoGen Swarm</span>
+            <span class="tech-badge">FAISS Vectorstore</span>
+            <span class="tech-badge">Strict RAG Context</span>
+        </div>
+    </div>
 
 </div>
 """, unsafe_allow_html=True)
