@@ -13,7 +13,7 @@ st.set_page_config(
 )
 
 # =====================================================
-# CUSTOM CSS
+# GLOBAL CUSTOM CSS (All styles consolidated here)
 # =====================================================
 
 st.markdown("""
@@ -43,10 +43,29 @@ st.markdown("""
     font-weight:500;
 }
 
+/* Timeline Layout Fixes */
 .timeline{
-    border-left:4px solid #2563eb;
-    padding-left:20px;
-    margin-left:10px;
+    border-left: 4px solid #2563eb;
+    padding-left: 20px;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.timeline-item {
+    margin-bottom: 35px;
+    position: relative;
+}
+
+.tech-badge {
+    background-color: #f0f2f6;
+    color: #31333F;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-right: 6px;
+    display: inline-block;
+    margin-top: 8px;
 }
 
 </style>
@@ -194,32 +213,9 @@ st.divider()
 # AI JOURNEY
 # =====================================================
 
-# =====================================================
-# AI JOURNEY
-# =====================================================
-
 st.header("🚀 AI Learning Journey")
 
 st.markdown("""
-<style>
-    .timeline-item {
-        margin-bottom: 25px;
-        padding-left: 15px;
-        border-left: 3px solid #4A90E2;
-    }
-    .tech-badge {
-        background-color: #f0f2f6;
-        color: #31333F;
-        padding: 2px 8px;
-        border-radius: 4px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-right: 5px;
-        display: inline-block;
-        margin-top: 5px;
-    }
-</style>
-
 <div class="timeline">
 
     <!-- MILESTONE 1 -->
@@ -298,143 +294,3 @@ with m4:
     st.metric("Frameworks", "5+")
 
 st.divider()
-
-# =====================================================
-# PROJECTS
-# =====================================================
-
-st.header("🚀 Featured Projects")
-
-# Project 1
-
-with st.container(border=True):
-
-    st.subheader("📚 Multimodal RAG Assistant")
-
-    st.write("""
-**Overview**
-
-A Retrieval-Augmented Generation system capable of understanding both text and image content from websites.
-
-**Key Features**
-
-- Web URL ingestion
-- Text extraction
-- Image extraction
-- OpenAI Embeddings
-- Supabase Vector Storage
-- Image-aware retrieval
-- Contextual answers with visuals
-""")
-
-    image_path = Path("assets/rag.png")
-
-    if image_path.exists():
-        st.image(str(image_path))
-
-    video_path = Path("assets/rag_demo.mp4")
-
-    if video_path.exists():
-        st.video(str(video_path))
-
-# Project 2
-
-with st.container(border=True):
-
-    st.subheader("✈️ Travel Planner Agent")
-
-    st.write("""
-**Overview**
-
-An Agentic AI travel planner built using LangGraph.
-
-**Capabilities**
-
-- Collects travel preferences
-- Budget planning
-- Hotel recommendations
-- Weather analysis
-- Experience recommendations
-- Itinerary generation
-- User feedback driven optimization
-""")
-
-    image_path = Path("assets/travel.png")
-
-    if image_path.exists():
-        st.image(str(image_path))
-
-    video_path = Path("assets/travel_demo.mp4")
-
-    if video_path.exists():
-        st.video(str(video_path))
-
-# Project 3
-
-with st.container(border=True):
-
-    st.subheader("🎓 Study Buddy (AutoGen Swarm Team)")
-
-    st.write("""
-**Overview**
-
-A multi-agent educational assistant that helps users learn directly from PDF documents.
-
-**Workflow**
-
-- PDF ingestion
-- Concept explanation
-- Quiz generation
-- Answer validation
-- Learning reinforcement
-
-**Agents**
-
-- Retriever&Explainer Agent
-- Quiz Generator&Validator Agent
-- User Proxy Agent
-""")
-
-    image_path = Path("assets/studybuddy.png")
-
-    if image_path.exists():
-        st.image(str(image_path))
-
-    video_path = Path("assets/study_demo.mp4")
-
-    if video_path.exists():
-        st.video(str(video_path))
-
-st.divider()
-
-# =====================================================
-# CURRENTLY EXPLORING
-# =====================================================
-
-st.header("📖 Currently Exploring")
-
-st.markdown("""
-- Model Context Protocol (MCP)
-- Advanced Agentic AI Architectures
-- Multi-Agent Collaboration Patterns
-- AI Evaluation Frameworks
-- Production AI Deployment
-""")
-
-st.divider()
-
-# =====================================================
-# CONTACT
-# =====================================================
-
-st.header("📬 Contact")
-
-col1, col2 = st.columns(2)
-
-with col1:
-    st.info("📧 anithachelamuthu@gmail.com")
-
-with col2:
-    st.info("🌍 Chennai, India")
-
-st.success("Thank you for visiting my portfolio 🚀")
