@@ -213,65 +213,60 @@ st.divider()
 # AI JOURNEY
 # =====================================================
 
+# =====================================================
+# AI JOURNEY (Native Streamlit Implementation)
+# =====================================================
+
 st.header("🚀 AI Learning Journey")
 
-st.markdown("""
-<div class="timeline">
+# Define data structure for milestones
+milestones = [
+    {
+        "title": "📚 Multimodal RAG Systems",
+        "desc": "Engineered an advanced retrieval pipeline that ingests live website URLs to extract, chunk, and index both text and visual elements. By mapping image metadata directly to semantic text chunks, the system enables an LLM to deliver context-grounded answers paired with real-time supporting visuals.",
+        "points": [
+            "Automated parsing and intelligent chunking of rich web content.",
+            "Eliminated hallucinations by forcing strict grounding on retrieved data."
+        ],
+        "badges": ["Supabase (pgvector)", "LangChain", "OpenAI GPT-4o", "BeautifulSoup"]
+    },
+    {
+        "title": "✈️ Agentic Workflows with LangGraph",
+        "desc": "Designed and deployed autonomous, stateful travel planning agents using graph-based architectures. The system coordinates cyclical workflows where agents dynamically gather real-time data, reason over complex budget and scheduling constraints, and iteratively refine highly customized itineraries.",
+        "points": [
+            "Implemented state management to track and update user constraints dynamically.",
+            "Created feedback loops for continuous self-correction and route optimization."
+        ],
+        "badges": ["LangGraph", "Stateful Agents", "Tool Calling", "Python"]
+    },
+    {
+        "title": "🤝 Multi-Agent Systems using AutoGen",
+        "desc": "Developed an AI-powered 'Study Buddy' that transforms static PDF textbooks into conversational learning tools. Built on a swarm framework, the project coordinates specialized agents to handle core tutoring, active recall evaluation, and human-in-the-loop validation.",
+        "points": [
+            "Tutor & MCQ Agents: Cooperate to explain concepts and instantly generate custom quizzes.",
+            "User Proxy Agent: Orchestrates seamless task handoffs and direct human feedback."
+        ],
+        "badges": ["AutoGen Swarm", "FAISS Vectorstore", "Strict RAG Context"]
+    }
+]
 
-    <!-- MILESTONE 1 -->
-    <div class="timeline-item">
-        <h4>📚 Multimodal RAG Systems</h4>
-        <p>Engineered an advanced retrieval pipeline that ingests live website URLs to extract, chunk, and index both text and visual elements. By mapping image metadata directly to semantic text chunks, the system enables an LLM to deliver context-grounded answers paired with real-time supporting visuals.</p>
-        <p>💡 <b>Key Accomplishments:</b></p>
-        <ul>
-            <li>Automated parsing and intelligent chunking of rich web content.</li>
-            <li>Eliminated hallucinations by forcing strict grounding on retrieved data.</li>
-        </ul>
-        <div>
-            <span class="tech-badge">Supabase (pgvector)</span>
-            <span class="tech-badge">LangChain</span>
-            <span class="tech-badge">OpenAI GPT-4o</span>
-            <span class="tech-badge">BeautifulSoup</span>
-        </div>
-    </div>
+# Render milestones natively using container rows
+for item in milestones:
+    with st.container():
+        st.subheader(item["title"])
+        st.write(item["desc"])
+        
+        st.markdown("**💡 Key Accomplishments:**")
+        for pt in item["points"]:
+            st.markdown(f"- {pt}")
+            
+        # Format and display badges nicely
+        badge_str = " ".join([f"`{badge}`" for badge in item["badges"]])
+        st.markdown(badge_str)
+        
+        st.write("") # Spacer line
+        st.divider()
 
-    <!-- MILESTONE 2 -->
-    <div class="timeline-item">
-        <h4>✈️ Agentic Workflows with LangGraph</h4>
-        <p>Designed and deployed autonomous, stateful travel planning agents using graph-based architectures. The system coordinates cyclical workflows where agents dynamically gather real-time data, reason over complex budget and scheduling constraints, and iteratively refine highly customized itineraries.</p>
-        <p>💡 <b>Key Accomplishments:</b></p>
-        <ul>
-            <li>Implemented state management to track and update user constraints dynamically.</li>
-            <li>Created feedback loops for continuous self-correction and route optimization.</li>
-        </ul>
-        <div>
-            <span class="tech-badge">LangGraph</span>
-            <span class="tech-badge">Stateful Agents</span>
-            <span class="tech-badge">Tool Calling</span>
-            <span class="tech-badge">Python</span>
-        </div>
-    </div>
-
-    <!-- MILESTONE 3 -->
-    <div class="timeline-item">
-        <h4>🤝 Multi-Agent Systems using AutoGen</h4>
-        <p>Developed an AI-powered "Study Buddy" that transforms static PDF textbooks into conversational learning tools. Built on a swarm framework, the project coordinates specialized agents to handle core tutoring, active recall evaluation, and human-in-the-loop validation.</p>
-        <p>💡 <b>Key Accomplishments:</b></p>
-        <ul>
-            <li><b>Tutor & MCQ Agents:</b> Cooperate to explain concepts and instantly generate custom quizzes.</li>
-            <li><b>User Proxy Agent:</b> Orchestrates seamless task handoffs and direct human feedback.</li>
-        </ul>
-        <div>
-            <span class="tech-badge">AutoGen Swarm</span>
-            <span class="tech-badge">FAISS Vectorstore</span>
-            <span class="tech-badge">Strict RAG Context</span>
-        </div>
-    </div>
-
-</div>
-""", unsafe_allow_html=True)
-
-st.divider()
 
 # =====================================================
 # HIGHLIGHTS
