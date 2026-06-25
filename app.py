@@ -289,3 +289,144 @@ with m4:
     st.metric("Frameworks", "5+")
 
 st.divider()
+
+# =====================================================
+# PROJECTS
+# =====================================================
+
+st.header("🚀 Featured Projects")
+
+# Project 1
+
+with st.container(border=True):
+
+    st.subheader("📚 Multimodal RAG Assistant")
+
+    st.write("""
+**Overview**
+
+A Retrieval-Augmented Generation system capable of understanding both text and image content from websites.
+
+**Key Features**
+
+- Web URL ingestion
+- Text extraction
+- Image extraction
+- OpenAI Embeddings
+- Supabase Vector Storage
+- Image-aware retrieval
+- Contextual answers with visuals
+""")
+
+    image_path = Path("assets/rag.png")
+
+    if image_path.exists():
+        st.image(str(image_path))
+
+    video_path = Path("assets/rag_demo.mp4")
+
+    if video_path.exists():
+        st.video(str(video_path))
+
+# Project 2
+
+with st.container(border=True):
+
+    st.subheader("✈️ Travel Planner Agent")
+
+    st.write("""
+**Overview**
+
+An Agentic AI travel planner built using LangGraph.
+
+**Capabilities**
+
+- Collects travel preferences
+- Budget planning
+- Hotel recommendations
+- Weather analysis
+- Experience recommendations
+- Itinerary generation
+- User feedback driven optimization
+""")
+
+    image_path = Path("assets/travel.png")
+
+    if image_path.exists():
+        st.image(str(image_path))
+
+    video_path = Path("assets/travel_demo.mp4")
+
+    if video_path.exists():
+        st.video(str(video_path))
+
+# Project 3
+
+with st.container(border=True):
+
+    st.subheader("🎓 Study Buddy (AutoGen Swarm Team)")
+
+    st.write("""
+**Overview**
+
+A multi-agent educational assistant that helps users learn directly from PDF documents.
+
+**Workflow**
+
+- PDF ingestion
+- Concept explanation
+- Quiz generation
+- Answer validation
+- Learning reinforcement
+
+**Agents**
+
+- Retriever&Explainer Agent
+- Quiz Generator&Validator Agent
+- User Proxy Agent
+""")
+
+    image_path = Path("assets/studybuddy.png")
+
+    if image_path.exists():
+        st.image(str(image_path))
+
+    video_path = Path("assets/study_demo.mp4")
+
+    if video_path.exists():
+        st.video(str(video_path))
+
+st.divider()
+
+# =====================================================
+# CURRENTLY EXPLORING
+# =====================================================
+
+st.header("📖 Currently Exploring")
+
+st.markdown("""
+- Model Context Protocol (MCP)
+- Advanced Agentic AI Architectures
+- Multi-Agent Collaboration Patterns
+- AI Evaluation Frameworks
+- Production AI Deployment
+""")
+
+st.divider()
+
+# =====================================================
+# CONTACT
+# =====================================================
+
+st.header("📬 Contact")
+
+col1, col2 = st.columns(2)
+
+with col1:
+    st.info("📧 anithachelamuthu@gmail.com")
+
+with col2:
+    st.info("🌍 Chennai, India")
+
+st.success("Thank you for visiting my portfolio 🚀")
+
