@@ -202,7 +202,19 @@ st.markdown("""
 <h4>📚 Multimodal RAG Systems</h4>
 
 Built retrieval systems capable of processing both text and images from websites and generating context-aware answers.
+A Retrieval-Augmented Generation (RAG) application that processes content from a website URL by extracting both text and images. The content is then chunked, embedded, and stored in a Supabase vector database for efficient retrieval.
+Along with storing text embeddings, the system maintains image metadata linked to relevant content chunks. As a result, when users interact with the AI assistant, it can retrieve accurate contextual answers along with the most relevant supporting image.
+💡 Core Features
 
+*   **🌐 Intelligent Ingestion:** Automates parsing of text and images from live web URLs.
+*   **🧩 Semantic Vector Pipeline:** Employs intelligent text chunking and embeds data for high-dimensional similarity search.
+*   **🖼️ Multimodal Context Mapping:** Links image metadata to text chunks, serving precise answers paired with **supporting visuals**.
+*   **🧠 Grounded Q&A Engine:** Minimizes hallucinations by restricting LLM responses strictly to retrieved data.
+## 🛠️ Tech Stack
+
+*   **Vector Database:** Supabase (`pgvector`)
+*   **Orchestration & LLMs:** LangChain, OpenAI GPT-4o
+*   **Data Processing:** Python, BeautifulSoup
 <br><br>
 
 <h4>✈️ Agentic Workflows with LangGraph</h4>
@@ -214,8 +226,8 @@ Designed intelligent travel planning agents that gather information, reason over
 <h4>🤝 Multi-Agent Systems using AutoGen</h4>
 
 Built collaborative AI agents capable of explaining concepts, generating quizzes, and validating answers from educational PDFs.
-an AI-powered Study Buddy built using the AutoGen Swarm framework and FAISS Vectorstore for precise PDF-based learning. 📄✨
-Project Overview:
+An AI-powered Study Buddy built using the AutoGen Swarm framework and FAISS Vectorstore for precise PDF-based learning. 📄✨
+Overview:
 🤖 Tutor Agent: Explains complex topics and answers questions instantly.
 🧠 MCQ Agent: Generates custom quizzes and evaluates your answers.
 👥 User Proxy Agent: Ensures seamless human-in-the-loop interaction.
@@ -340,10 +352,9 @@ A multi-agent educational assistant that helps users learn directly from PDF doc
 
 **Agents**
 
-- Retriever Agent
-- Explainer Agent
-- Quiz Generator Agent
-- Validator Agent
+- Retriever&Explainer Agent
+- Quiz Generator&Validator Agent
+- User Proxy Agent
 """)
 
     image_path = Path("assets/studybuddy.png")
