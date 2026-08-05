@@ -97,7 +97,7 @@ with col2:
     <p style="font-size:18px;">
     Building intelligent AI applications using
     LangGraph, AutoGen, OpenAI, RAG,
-    FastAPI, Supabase and Multi-Agent Systems.
+    FastAPI, Supabase/Qdrant Vectorbase and Multi-Agent Systems.
     </p>
 
     <p>
@@ -181,7 +181,7 @@ skills = [
     "OpenAI",
     "FastAPI",
     "Supabase",
-    "Pinecone",
+    "Qdrant",
     "FAISS",
     "Embeddings",
     "RAG",
@@ -231,6 +231,15 @@ milestones = [
         "badges": ["Supabase (pgvector)", "LangChain", "OpenAI GPT-4o", "BeautifulSoup"]
     },
     {
+        "title": "🔍 ReAct Research Copilot",
+        "desc": "Built an autonomous ReAct agent that alternates reasoning and tool calls to answer questions strictly from a private document corpus, with every claim traceable to a source. Implemented dual dense retrieval (Qdrant) with a local cross-encoder reranker and deduplication to surface precise, non-redundant evidence, plus a per-conversation citation registry that grounds each factual statement to its originating chunk. Designed and debugged an automated evaluation harness scoring retrieval accuracy, answer correctness, and citation-level groundedness against a golden dataset — iteratively diagnosing failure modes like chunk topic-dilution and citation misattachment, with an 85% retrieval hit rate and 0.90 correctness.",
+        "points": [
+            "Tutor & MCQ Agents: Cooperate to explain concepts and instantly generate custom quizzes.",
+            "Eliminated hallucinations by forcing citations on retrieved data."
+        ],
+        "badges": ["Qdrant", "LangChain", "Cross-Encoder Reranking","ReAct Agents"]
+    },
+    {
         "title": "✈️ Agentic Workflows with LangGraph",
         "desc": "Designed and deployed autonomous, stateful travel planning agents using graph-based architectures. The system coordinates cyclical workflows where agents dynamically gather real-time data, reason over complex budget and scheduling constraints, and iteratively refine highly customized itineraries.",
         "points": [
@@ -248,6 +257,7 @@ milestones = [
         ],
         "badges": ["AutoGen Swarm", "FAISS Vectorstore", "Strict RAG Context"]
     }
+    
 ]
 
 # Render milestones natively using container rows
@@ -277,7 +287,7 @@ st.header("📊 Portfolio Highlights")
 m1, m2, m3, m4 = st.columns(4)
 
 with m1:
-    st.metric("Projects", "3")
+    st.metric("Projects", "4")
 
 with m2:
     st.metric("Core Focus", "GenAI")
@@ -332,6 +342,39 @@ A Retrieval-Augmented Generation system capable of understanding both text and i
 
 with st.container(border=True):
 
+    st.subheader("🔍 ReAct Research Copilot")
+
+    st.write("""
+**Overview**
+
+An Agentic AI travel planner built using LangGraph.
+
+**Capabilities**
+
+- Collects travel preferences
+- Budget planning
+- Hotel recommendations
+- Weather analysis
+- Experience recommendations
+- Itinerary generation
+- User feedback driven optimization
+""")
+
+    image_path = Path("assets/travel.png")
+
+    if image_path.exists():
+        st.image(str(image_path))
+
+    video_path = Path("assets/ReAct_Research_Copilot.mp4")
+
+    if video_path.exists():
+        st.video(str(video_path))
+
+
+# Project 3
+
+with st.container(border=True):
+
     st.subheader("✈️ Travel Planner Agent")
 
     st.write("""
@@ -360,7 +403,7 @@ An Agentic AI travel planner built using LangGraph.
     if video_path.exists():
         st.video(str(video_path))
 
-# Project 3
+# Project 4
 
 with st.container(border=True):
 
