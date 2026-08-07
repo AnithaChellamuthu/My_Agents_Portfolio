@@ -234,8 +234,8 @@ milestones = [
         "title": "🔍 ReAct Research Copilot",
         "desc": "Built an autonomous ReAct agent that alternates reasoning and tool calls to answer questions strictly from a private document corpus, with every claim traceable to a source. Implemented dual dense retrieval (Qdrant) with a local cross-encoder reranker and deduplication to surface precise, non-redundant evidence, plus a per-conversation citation registry that grounds each factual statement to its originating chunk. Designed and debugged an automated evaluation harness scoring retrieval accuracy, answer correctness, and citation-level groundedness against a golden dataset — iteratively diagnosing failure modes like chunk topic-dilution and citation misattachment, with an 85% retrieval hit rate and 0.90 correctness.",
         "points": [
-            "Tutor & MCQ Agents: Cooperate to explain concepts and instantly generate custom quizzes.",
-            "Eliminated hallucinations by forcing citations on retrieved data."
+            Eliminated unsupported claims by tracing every answer back to a specific source chunk via a citation registry.
+            Built an automated evaluation harness that improved retrieval hit rate from 65% to 85% by diagnosing chunk dilution and citation-misattachment failures.
         ],
         "badges": ["Qdrant", "LangChain", "Cross-Encoder Reranking","ReAct Agents"]
     },
@@ -347,17 +347,17 @@ with st.container(border=True):
     st.write("""
 **Overview**
 
-An Agentic AI travel planner built using LangGraph.
+An autonomous ReAct agent that reasons, retrieves, and reranks over a private document corpus to answer questions with fully traceable citations.
 
-**Capabilities**
+**Key Features**
 
-- Collects travel preferences
-- Budget planning
-- Hotel recommendations
-- Weather analysis
-- Experience recommendations
-- Itinerary generation
-- User feedback driven optimization
+- ReAct reasoning loop (Thought → Action → Observation)
+- Dual dense retrieval (current query + original question)
+- Qdrant vector storage
+- Local cross-encoder reranking
+- Near-duplicate deduplication
+- Per-conversation citation registry
+- Automated retrieval, correctness & groundedness evaluation
 """)
 
     image_path = Path("assets/travel.png")
